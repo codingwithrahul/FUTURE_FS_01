@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rahul Rojasara | Project Details</title>
+
+  <!-- Favicons -->
+  <link href="assets/img/fav.png" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Poppins&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    .project-section { display: none; }
+    .project-section.active { display: block; }
+
+    .dropdown-menu { display: none; padding-left: 15px; }
+    .dropdown:hover .dropdown-menu { display: block; }
+  </style>
+</head>
+
+<body>
+
+<!-- Mobile Nav Toggle -->
+<button type="button" class="mobile-nav-toggle d-xl-none">
+  <i class="icofont-navigation-menu"></i>
+</button>
+
+<!-- Header -->
+<header id="header">
+  <div class="d-flex flex-column">
+
+    <div class="profile">
+      <img src="assets/img/Rahul.jpg" class="img-fluid rounded-circle" alt="">
+      <h1 class="text-light"><a href="index.html">Rahul Rojasara</a></h1>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li>
+          <a href="index.html"><i class="bx bx-home"></i> Home</a>
+        </li>
+
+        <li class="dropdown active">
+          <a href="#">
+            <i class="bx bx-book-content"></i> Projects
+            <i class="bx bx-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#project1">Project 1</a></li>
+            <li><a href="#project2">Project 2</a></li>
+            <li><a href="#project3">Project 3</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<main id="main">
+
+<section class="breadcrumbs">
+  <div class="container">
+    <h2>Portfolio Details</h2>
+  </div>
+</section>
+
+<section id="portfolio-details" class="portfolio-details">
+
+  <!-- PROJECT 1 -->
+  <div id="project1" class="project-section active container">
+    <div class="portfolio-details-container">
+
+      <div class="owl-carousel portfolio-details-carousel">
+        <img src="assets/img/project-img1.png" class="img-fluid" alt="">
+        <img src="assets/img/project-img2.png" class="img-fluid" alt="">
+        <img src="assets/img/project-img3.png" class="img-fluid" alt="">
+        <img src="assets/img/project-img4.png" class="img-fluid" alt="">
+      </div>
+
+      <div class="portfolio-info">
+        <h3>Project Information</h3>
+        <ul>
+          <li><strong>Category:</strong> College Project</li>
+          <li><strong>Institution:</strong> Marwadi University</li>
+          <li><strong>Date:</strong> December 2025</li>
+          <li><strong>URL:</strong>
+            <a href="https://baseconverter.vercel.app/" target="_blank">View Project</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="portfolio-description">
+      <h2>Base Converter Website</h2>
+      <p>
+        Converts Binary, Decimal, Octal, and Hexadecimal numbers with real-time validation.
+      </p>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div id="project2" class="project-section container">
+    <div class="portfolio-description">
+      <h2>Project 2</h2>
+      <p>Details of Project 2.</p>
+    </div>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div id="project3" class="project-section container">
+    <div class="portfolio-description">
+      <h2>Project 3</h2>
+      <p>Details of Project 3.</p>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Rahul Rojasara</span></strong>
+        
+        <!--<div><a rel="noopener" href="https://rahulrojasara.vercel.app/">TechGyan</a></div> -->
+      </div>
+    </div>
+
+  </footer><!-- End  Footer -->
+
+<!-- Vendor JS -->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+<!-- MOBILE NAV + PROJECT FIX -->
+<script>
+  /* MOBILE NAV TOGGLE */
+  document.querySelector('.mobile-nav-toggle').addEventListener('click', function () {
+    document.body.classList.toggle('mobile-nav-active');
+    this.querySelector('i').classList.toggle('icofont-navigation-menu');
+    this.querySelector('i').classList.toggle('icofont-close');
+  });
+
+  /* OWL CAROUSEL */
+  function initCarousel() {
+    const $carousel = $('.portfolio-details-carousel');
+    if ($carousel.hasClass('owl-loaded')) {
+      $carousel.trigger('destroy.owl.carousel');
+    }
+    $carousel.owlCarousel({
+      items: 1,
+      loop: true,
+      autoplay: true,
+      dots: true
+    });
+  }
+
+  /* PROJECT SWITCH */
+  function showProjectFromHash() {
+    const hash = window.location.hash || '#project1';
+
+    document.querySelectorAll('.project-section')
+      .forEach(section => section.classList.remove('active'));
+
+    const active = document.querySelector(hash);
+    if (active) active.classList.add('active');
+
+    initCarousel();
+  }
+
+  window.addEventListener('load', showProjectFromHash);
+  window.addEventListener('hashchange', showProjectFromHash);
+</script>
+
+</body>
+</html>
